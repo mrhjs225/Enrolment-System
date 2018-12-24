@@ -1,0 +1,30 @@
+create database registration;
+
+create table student (
+	student_id char(10),
+	password varchar(20),
+	name varchar(10),
+	year int,
+	credit int,
+	valid_grade int
+);
+
+create table course (
+	id int NOT NULL auto_increment Primary Key,
+	name varchar(20),
+	prof varchar(10),
+	number int,
+	location varchar(20),
+	year int,
+	grade int,
+	time int,
+	days varchar(30),
+	reg_count int
+);
+
+create table sugang (
+	student_id char(10),
+	course_id int,
+	isRegister int
+	foreign key(course_id) references course(id) on delete cascade
+);
